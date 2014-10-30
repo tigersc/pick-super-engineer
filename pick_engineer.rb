@@ -1,5 +1,5 @@
 #function pick_engineer will find name of engineer from "engineers.txt"
-def pick_engineer(string = "")
+def pick_engineer(string)
 	#initial array engineer to store each text line => engineer's name 
 	engineer = File.readlines("engineers.txt") 
 	engineer.each do |i|
@@ -7,7 +7,7 @@ def pick_engineer(string = "")
 			return i
 		end
 	end
-	return "NotFound"
+	return ""
 end
 
 def featureA(engineer)
@@ -37,9 +37,14 @@ def featureB(engineer)
 	return a[0]+' '+b[0] +'...' 	# show output------- 
 end 
 
-name = pick_engineer(ARGV[0])
-puts "1. %s" % [name]
+if ! ARGV.empty?
+	name = pick_engineer(ARGV[0])
+	
+	if name != ""
+		puts "1. %s" % [name]
 
-puts "2. %s" % [featureA(name)]
+		puts "2. %s" % [featureA(name)]
 
-puts "3. %s" % [featureB(name)]
+		puts "3. %s" % [featureB(name)]
+	end
+end
