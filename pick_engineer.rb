@@ -1,11 +1,13 @@
-#function pick_engineer will random name of engineer from "engineers.txt"
-def pick_engineer()
+#function pick_engineer will find name of engineer from "engineers.txt"
+def pick_engineer(string = "")
 	#initial array engineer to store each text line => engineer's name 
-	engineer = Array.new()
 	engineer = File.readlines("engineers.txt") 
-	
-	#random engineer's name 
-	engineer[rand(engineer.length)] 
+	engineer.each do |i|
+		if i.index(string) != nil
+			return i
+		end
+	end
+	return "NotFound"
 end
 
 def featureA(engineer)
@@ -35,8 +37,10 @@ def featureB(engineer)
 	return a[0]+' '+b[0] +'...' 	# show output------- 
 end 
 
+puts "Enter name : "
+search = gets.chomp
 
-name = pick_engineer()
+name = pick_engineer(search)
 puts "1. %s" % [name]
 
 puts "2. %s" % [featureA(name)]
