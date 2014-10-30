@@ -37,10 +37,7 @@ def featureB(engineer)
 	return a[0]+' '+b[0] +'...' 	# show output------- 
 end 
 
-puts "Enter name : "
-search = gets.chomp
-
-name = pick_engineer(search)
+name = pick_engineer(ARGV[0])
 puts "1. %s" % [name]
 
 puts "2. %s" % [featureA(name)]
