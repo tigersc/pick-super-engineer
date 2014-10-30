@@ -26,8 +26,19 @@ def featureA(engineer)
 	return a
 end
 
+def featureB(data)
+	#puts data 			# print name of engineer with random 
+	a = data.split(' ') 		# convert string to an array of characters with the split method.
+	b = Array.new 			# create new array => []
+	b = a[1].split("") 		# convert string into array, split on an empty string delimiter.
+	puts a[0]+' '+b[0] +'...' 	# show output-------
+end
+
 name = pick_engineer()
 puts "1. %s" % [name]
 
 name = featureA(name)
 puts "2. %s" % [name]
+
+name = featureB(name)
+puts "3. %s" % [name]
