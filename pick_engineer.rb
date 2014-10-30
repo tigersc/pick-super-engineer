@@ -8,4 +8,26 @@ def pick_engineer()
 	engineer[rand(engineer.length)] 
 end
 
-puts pick_engineer()
+def featureA(engineer)
+	#initial array subname to store each sub name => firstname midname surname  
+	sub = Array.new()
+	sub = engineer.split(' ')
+
+	#initial string a to store dot style 
+	a = ""
+	sub.each do |n|
+		if n == sub.last
+			a = a + n				 
+			break
+		end
+		a = a + n + '.'
+	end
+	
+	return a
+end
+
+name = pick_engineer()
+puts "1. %s" % [name]
+
+name = featureA(name)
+puts "2. %s" % [name]
